@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Image Search</title>
+</head>
+<body>
+    <center><h1>EXPLORE FASHION USING STYLEGAN </h1></center>
+    <form method="post">
+       <center> <label for="description">Enter product description:</label></center>
+       <center> <input type="text" id="description" name="description" required></center></br>
+        <center><button type="submit">Search</button></center>
+    </form>
+    <div>
+        {% if images %}
+           <center> <h2>Generated Products:</h2></center>
+            <div style="display: flex; flex-wrap: wrap;">
+                {% for img in images %}
+                    <div style="margin: 10px;">
+                        <img src="data:image/png;base64,{{ img }}" style="width: 200px; height: 200px;">
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No products found. Enter a description to search.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
+{% endblock %}

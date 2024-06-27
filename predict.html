@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Similar Products</title>
+</head>
+<body>
+    <h1>Enter Product Description</h1>
+    <form action="{{ url_for('predict') }}" method="post">
+        <textarea name="description" rows="4" cols="50" placeholder="Enter description here..."></textarea>
+        <br>
+        <input type="submit" value="Find Similar Products">
+    </form>
+    <br>
+    <a href="{{ url_for('display_results') }}">View Results</a>
+</body>
+</html>
